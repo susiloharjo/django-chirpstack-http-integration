@@ -37,18 +37,52 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
     'chirpstack_integration'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # cors header
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ALLOWED_ORIGINS = [
+#     "https://example.com",
+#     "https://sub.example.com",
+#     "http://localhost:8080",
+#     "http://127.0.0.1:9000"
+# ]
+
+CORS_ALLOW_METHODS = [
+    'POST',
+
+]
+
+CORS_ALLOW_HEADERS = [
+    # 'accept',
+    # 'accept-encoding',
+    'authorization',
+    'content-type',
+    # 'dnt',
+    # 'origin',
+    # 'user-agent',
+    # 'x-csrftoken',
+    # 'x-requested-with',
+]
+
+
+# CORS_ALLOW_HEADERS = list(default_headers) + [
+#     'my-custom-header',
+# ]
+
 
 ROOT_URLCONF = 'coreapp.urls'
 
@@ -106,7 +140,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Jakarta'
 
 USE_I18N = True
 
